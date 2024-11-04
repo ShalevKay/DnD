@@ -15,4 +15,23 @@ public abstract class Tile implements Visited{
         return "" + tile;
     }
 
+
+    /****************************   getters & setter    ****************************/
+
+    public char getTile(){
+        return tile;
+    }
+
+    public void setTile(char tile){
+        this.tile = tile;
+    }
+
+    public Position getPosition(){
+        return position;
+    }
+
+    public void setPosition(Position p){
+        position = p;
+    }
+
 }
