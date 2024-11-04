@@ -1,4 +1,4 @@
-package Backend.TIles;
+package Backend.Tiles;
 
 public class EmptyTile {
 }

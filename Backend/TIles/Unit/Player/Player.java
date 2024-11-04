@@ -1,4 +1,4 @@
-package Backend.TIles.Unit.Player;
+package Backend.Tiles.Unit.Player;
 
 public class Player {
 }
