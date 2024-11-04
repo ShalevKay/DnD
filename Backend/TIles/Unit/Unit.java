@@ -1,10 +1,9 @@
 package Backend.Tiles.Unit;
 
 import Backend.Tiles.EmptyTile;
+import Backend.Tiles.Position;
 import Backend.Tiles.Tile;
 import Backend.Tiles.Wall;
-import Backend.Tiles.Unit.Enemy.Enemy;
-import Backend.Tiles.Unit.Player.Player;
 import Backend.VisitorInterfaces.Visitor;
 
 public abstract class Unit extends Tile implements Visitor{
@@ -14,39 +13,36 @@ public abstract class Unit extends Tile implements Visitor{
     protected int attackPoints;
     protected int defensePoints;
 
-    
-    
 
-
-
-
-    @Override
-    public void accept(Visitor visitor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'accept'");
+    public void interact(Tile tile){
+        tile.accept(this);
     }
 
     @Override
     public void visit(Wall wall) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+        return;
     }
 
     @Override
     public void visit(EmptyTile emptyTile) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+        int x = this.position.getX();
+        int y = this.position.getY();
+
+        Position other = emptyTile.getPosition();
+        this.position.setX(other.getX());
+        this.position.setY(other.getY());
+
+        other.setX(x);
+        other.setY(y);
     }
 
-    @Override
-    public void visit(Player player) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
-    }
+     
 
-    @Override
-    public void visit(Enemy enemy) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
-    }
+
+
+
+
+
+
+
 }
