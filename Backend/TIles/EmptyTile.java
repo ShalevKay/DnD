@@ -1,4 +1,17 @@
 package Backend.Tiles;
 
-public class EmptyTile {
+import Backend.VisitorInterfaces.Visitor;
+
+public class EmptyTile extends Tile {
+
+    public EmptyTile(char tile, int x, int y){
+        this.tile = tile;
+        this.position = new Position(x, y);
+    }
+
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }
