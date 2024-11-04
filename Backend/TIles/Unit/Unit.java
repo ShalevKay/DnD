@@ -1,5 +1,7 @@
 package Backend.Tiles.Unit;
 
+import java.util.Random;
+
 import Backend.Tiles.EmptyTile;
 import Backend.Tiles.Position;
 import Backend.Tiles.Tile;
@@ -36,8 +38,37 @@ public abstract class Unit extends Tile implements Visitor{
         other.setY(y);
     }
 
-     
+    public String  description(){
+        return "--- " + name + "---\n" + 
+                currentHealth + " / " + healthPool + " 🩸\n" +
+                attackPoints + " ⚔️    " + defensePoints + " 🛡️\n";
+    }
 
+    public boolean isDead(){
+        return currentHealth <= 0;
+    }
+
+    public void attack(Unit opponent){
+        Random random = new Random();
+
+        int dmg = random.nextInt(attackPoints + 1);
+
+        opponent.defend(dmg);
+    }
+
+    public void defend(int dmg){
+        Random random = new Random();
+
+        int defense = random.nextInt(defensePoints + 1);
+
+        if(dmg > defense){
+            currentHealth -= dmg - defense;
+        }
+    }
+     
+    public String getName(){
+        return name;
+    }
 
 
 
