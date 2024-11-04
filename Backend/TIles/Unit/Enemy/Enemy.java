@@ -1,4 +1,4 @@
-package Backend.TIles.Unit.Enemy;
+package Backend.Tiles.Unit.Enemy;
 
 public class Enemy {
 }

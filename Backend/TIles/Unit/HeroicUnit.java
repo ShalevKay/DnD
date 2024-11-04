@@ -1,4 +1,4 @@
-package Backend.TIles.Unit;
+package Backend.Tiles.Unit;
 
 public interface HeroicUnit {
 }

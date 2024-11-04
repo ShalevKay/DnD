@@ -1,9 +1,9 @@
 package Backend.VisitorInterfaces;
 
-import Backend.TIles.EmptyTile;
-import Backend.TIles.Unit.Enemy.Enemy;
-import Backend.TIles.Unit.Player.Player;
-import Backend.TIles.Wall;
+import Backend.Tiles.EmptyTile;
+import Backend.Tiles.Wall;
+import Backend.Tiles.Unit.Enemy.Enemy;
+import Backend.Tiles.Unit.Player.Player;
 
 public interface Visitor {
 
