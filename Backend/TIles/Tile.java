@@ -1,11 +1,17 @@
 package Backend.Tiles;
 
+
 import Backend.VisitorInterfaces.Visited;
 
 public abstract class Tile implements Visited{
     protected char tile;
     protected Position position;
 
+
+    public Tile(char tile, int x, int y){
+        this.tile = tile;
+        this.position = new Position(x, y);
+    }
 
     public double range(Tile other){
         return Position.range(position, other.position);
