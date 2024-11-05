@@ -16,14 +16,14 @@ public abstract class Unit extends Tile implements Visitor{
     protected int defensePoints;
 
 
-    public Unit(char tile, int x, int y, String name, int healthPool, int attackPoints, int defencePoints){
+    public Unit(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints){
         super(tile, x, y);
 
         this.name = name;
         this.healthPool = healthPool;
         this.currentHealth = healthPool;
         this.attackPoints = attackPoints;
-        this.defensePoints = defencePoints;
+        this.defensePoints = defensePoints;
     }
 
 

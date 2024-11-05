@@ -1,6 +1,5 @@
 package Backend.Tiles.Unit.Player;
 
-import Backend.Tiles.Position;
 import Backend.Tiles.Unit.HeroicUnit;
 import Backend.Tiles.Unit.Unit;
 import Backend.Tiles.Unit.Enemy.Enemy;
@@ -8,6 +7,14 @@ import Backend.Tiles.Unit.Enemy.Enemy;
 public abstract class Player extends Unit implements HeroicUnit{
     protected int experience;
     protected int level;
+
+
+    public Player(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints){
+        super(tile, x, y, name, healthPool, attackPoints, defensePoints);
+
+        this.experience = 0;
+        this.level = 1;
+    }
 
 
     protected boolean canLevelUp(){
