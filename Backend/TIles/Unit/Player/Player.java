@@ -2,6 +2,7 @@ package Backend.Tiles.Unit.Player;
 
 import Backend.Tiles.Unit.HeroicUnit;
 import Backend.Tiles.Unit.Unit;
+import Backend.Tiles.Unit.Enemy.Enemy;
 
 public abstract class Player extends Unit implements HeroicUnit{
     protected int experience;
@@ -25,7 +26,19 @@ public abstract class Player extends Unit implements HeroicUnit{
         defensePoints += level;
     }
 
+    @Override
+    public void visit(Player player){
+        return;
+    }
 
+    @Override
+    public void visit(Enemy enemy){
+        attack(enemy);
+
+        if(enemy.isDead()){
+            
+        }
+    }
 
 
 }
