@@ -1,5 +1,9 @@
 package Backend.Tiles.Unit.Player;
 
+import java.util.List;
+
+import Backend.Board;
+import Backend.Tiles.Tile;
 import Backend.Tiles.Unit.HeroicUnit;
 import Backend.Tiles.Unit.Unit;
 import Backend.Tiles.Unit.Enemy.Enemy;
@@ -66,5 +70,42 @@ public abstract class Player extends Unit implements HeroicUnit{
         }
     }
 
+    public void onTick(char action, Board board, List<Enemy> enemies) throws Exception{
+        if(action == 'q')
+        return;
+
+        if(action == 'e'){
+            castAbility(enemies);
+            return;
+        }
+
+        Tile tile = null;
+
+        switch (action) {
+            case 'w' -> {
+                tile = board.getTile(position.getX(), position.getY() - 1);
+            }
+            case 's' -> {
+                tile = board.getTile(position.getX(), position.getY() + 1);
+
+            }
+            case 'd' -> {
+                tile = board.getTile(position.getX() + 1, position.getY());
+
+            }
+            case 'a' -> {
+                tile = board.getTile(position.getX() - 1, position.getY());
+            }
+            default -> {
+                throw new Exception("illegal action");
+            }
+        }
+
+        interact(tile);
+
+        board.updatePositions(this, tile);
+    }
+
+    
 
 }
