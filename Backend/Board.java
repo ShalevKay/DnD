@@ -2,8 +2,6 @@ package Backend;
 
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
-
 import Backend.Tiles.Tile;
 
 public class Board {
