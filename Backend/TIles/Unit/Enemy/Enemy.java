@@ -6,6 +6,14 @@ import Backend.VisitorInterfaces.Visitor;
 
 public class Enemy extends Unit{
 
+    public int getExperienceValue(){
+        return 0;
+    }
+
+    public void setName(String name){
+        
+    }
+
     @Override
     public void visit(Player player) {
         // TODO Auto-generated method stub

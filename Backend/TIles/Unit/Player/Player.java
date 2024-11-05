@@ -1,5 +1,6 @@
 package Backend.Tiles.Unit.Player;
 
+import Backend.Tiles.Position;
 import Backend.Tiles.Unit.HeroicUnit;
 import Backend.Tiles.Unit.Unit;
 import Backend.Tiles.Unit.Enemy.Enemy;
@@ -36,7 +37,25 @@ public abstract class Player extends Unit implements HeroicUnit{
         attack(enemy);
 
         if(enemy.isDead()){
-            
+            experience += enemy.getExperienceValue();
+            enemy.setTile('1');
+
+            int x = position.getX();
+            int y = position.getY();
+
+            position.setX(enemy.getPosition().getX());
+            position.setY(enemy.getPosition().getY());
+            enemy.getPosition().setX(x);
+            enemy.getPosition().setY(y);
+
+            if(canLevelUp()){
+                try{
+                    levelUp();
+                }
+                catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
