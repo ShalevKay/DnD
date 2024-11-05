@@ -6,6 +6,12 @@ import Backend.VisitorInterfaces.Visitor;
 
 public class Enemy extends Unit{
 
+
+    public Enemy(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints){
+        super(tile, x, y, name, healthPool, attackPoints, defensePoints);
+    }
+
+
     public int getExperienceValue(){
         return 0;
     }
