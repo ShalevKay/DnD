@@ -22,7 +22,7 @@ public abstract class Enemy extends Unit{
 
     @Override
     public void visit(Player player) {
-        //TODO check if need anything
+        //TODO check if need anything else
         attack(player);
     }
 
