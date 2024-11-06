@@ -7,6 +7,7 @@ import Backend.Tiles.Tile;
 import Backend.Tiles.Unit.HeroicUnit;
 import Backend.Tiles.Unit.Unit;
 import Backend.Tiles.Unit.Enemy.Enemy;
+import Backend.VisitorInterfaces.Visitor;
 
 public abstract class Player extends Unit implements HeroicUnit{
     protected int experience;
@@ -36,6 +37,11 @@ public abstract class Player extends Unit implements HeroicUnit{
         currentHealth = healthPool;
         attackPoints += 4 * level;
         defensePoints += level;
+    }
+
+    @Override
+    public void accept(Visitor visitor){
+        visitor.visit(this);
     }
 
     @Override
