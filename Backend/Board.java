@@ -1,8 +1,7 @@
 package Backend;
 
-import java.util.List;
-
 import Backend.Tiles.Tile;
+import Backend.Tiles.Unit.Unit;
 
 public class Board {
 
@@ -12,7 +11,7 @@ public class Board {
         throw new RuntimeException("not implemented yet");
     }
 
-    public void updatePositions(List<Tile> tiles){
+    public void updatePositions(Unit u1, Tile tile){
         throw new RuntimeException("not implemented yet");
     }
 

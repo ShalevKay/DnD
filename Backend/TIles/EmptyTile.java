@@ -5,8 +5,7 @@ import Backend.VisitorInterfaces.Visitor;
 public class EmptyTile extends Tile {
 
     public EmptyTile(char tile, int x, int y){
-        this.tile = tile;
-        this.position = new Position(x, y);
+        super(tile, x, y);
     }
 
 
