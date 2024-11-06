@@ -4,7 +4,7 @@ import Backend.Tiles.Unit.Unit;
 import Backend.Tiles.Unit.Player.Player;
 import Backend.VisitorInterfaces.Visitor;
 
-public class Enemy extends Unit{
+public abstract class Enemy extends Unit{
 
 
     public Enemy(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints){
@@ -22,19 +22,19 @@ public class Enemy extends Unit{
 
     @Override
     public void visit(Player player) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+        //TODO check if need anything else
+        attack(player);
     }
 
     @Override
     public void visit(Enemy enemy) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+        return;
     }
 
     @Override
     public void accept(Visitor visitor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'accept'");
+        visitor.visit(this);
     }
+
+    public abstract void onTick();
 }
