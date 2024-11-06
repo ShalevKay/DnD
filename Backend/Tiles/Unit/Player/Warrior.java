@@ -4,6 +4,7 @@ import Backend.Board;
 import Backend.Tiles.Unit.Enemy.Enemy;
 
 import java.util.List;
+import java.util.Random;
 
 public class Warrior extends Player{
 
@@ -36,7 +37,21 @@ public class Warrior extends Player{
     @Override
     public void castAbility(List<Enemy> enemies){
         remainingCooldown = cooldown;
+        currentHealth = Math.min(currentHealth + (10 * defensePoints), healthPool);
 
+        List<Enemy> closeEnemies = (List<Enemy>)enemies.stream().map((enemy -> this.range(enemy) < 3));
+
+        Random random = new Random();
+        if(!closeEnemies.isEmpty()){
+            Enemy enemyToHit = closeEnemies.get(random.nextInt(0, closeEnemies.size()));
+            enemyToHit.reduceHealth(0.1 * healthPool);
+        }
+
+    }
+
+    @Override
+    public void castAbility(Player player){
+        return;
     }
 
 }

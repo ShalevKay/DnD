@@ -37,4 +37,9 @@ public abstract class Enemy extends Unit{
     }
 
     public abstract void onTick();
+
+    public void reduceHealth(double damage){
+        currentHealth -= (int)Math.floor(damage);
+    }
+
 }
