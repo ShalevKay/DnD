@@ -36,7 +36,7 @@ public abstract class Enemy extends Unit{
         visitor.visit(this);
     }
 
-    public abstract void onTick();
+    public abstract void onTick(Player player);
 
     public void reduceHealth(double damage){
         currentHealth -= (int)Math.floor(damage);
