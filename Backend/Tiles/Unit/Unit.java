@@ -81,10 +81,4 @@ public abstract class Unit extends Tile implements Visitor{
         return name;
     }
 
-
-
-
-
-
-
 }

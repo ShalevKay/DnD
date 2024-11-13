@@ -49,7 +49,7 @@ public class Mage extends Player{
         List<Enemy> closeEnemies = enemies.stream().filter(enemy -> this.range(enemy) < abilityRange).toList();
         while((hits < hitsCount) && !closeEnemies.isEmpty()){
             Enemy enemyToHit = closeEnemies.get(random.nextInt(0, closeEnemies.size()));
-            //TODO need to attack the enemy, but the enemy tries to defend itself
+            enemyToHit.defend(spellPower);
             hits++;
             closeEnemies = enemies.stream().filter(enemy -> this.range(enemy) < abilityRange).toList();
         }
