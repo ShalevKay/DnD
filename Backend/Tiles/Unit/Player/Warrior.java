@@ -36,6 +36,10 @@ public class Warrior extends Player{
 
     @Override
     public void castAbility(List<Enemy> enemies){
+        if(remainingCooldown > 0){
+            return;
+        }
+
         remainingCooldown = cooldown;
         currentHealth = Math.min(currentHealth + (10 * defensePoints), healthPool);
 
