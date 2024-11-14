@@ -39,7 +39,7 @@ public class Warrior extends Player{
         remainingCooldown = cooldown;
         currentHealth = Math.min(currentHealth + (10 * defensePoints), healthPool);
 
-        List<Enemy> closeEnemies = (List<Enemy>)enemies.stream().map((enemy -> this.range(enemy) < 3));
+        List<Enemy> closeEnemies = enemies.stream().filter((enemy -> this.range(enemy) < 3)).toList();
 
         Random random = new Random();
         if(!closeEnemies.isEmpty()){
