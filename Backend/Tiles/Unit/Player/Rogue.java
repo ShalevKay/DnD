@@ -1,5 +1,6 @@
 package Backend.Tiles.Unit.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Backend.Board;
@@ -39,11 +40,20 @@ public class Rogue extends Player {
 
     }
 
-
-
     @Override
     public void castAbility(List<Enemy> enemies) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'castAbility'");
+        if(currentEnergy < cost){
+            return;
+        }
+
+        currentEnergy -= cost;
+
+        for(Enemy e : enemies){
+            if(range(e) < 2){
+                e.defend(attackPoints);
+
+                deadEnemy(e);
+            }
+        }
     }    
 }
