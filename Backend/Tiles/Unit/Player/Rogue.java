@@ -45,12 +45,5 @@ public class Rogue extends Player {
     public void castAbility(List<Enemy> enemies) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'castAbility'");
-    }
-
-    @Override
-    public void castAbility(Player player) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'castAbility'");
-    }
-    
+    }    
 }
