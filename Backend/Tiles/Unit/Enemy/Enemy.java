@@ -6,18 +6,21 @@ import Backend.VisitorInterfaces.Visitor;
 
 public abstract class Enemy extends Unit{
 
+    private int experienceValue;
 
-    public Enemy(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints){
+    public Enemy(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints, int experienceValue){
         super(tile, x, y, name, healthPool, attackPoints, defensePoints);
+
+        this.experienceValue = experienceValue;
     }
 
 
     public int getExperienceValue(){
-        return 0;
+        return experienceValue;
     }
 
     public void setName(String name){
-        
+        this.name = name;
     }
 
     @Override
@@ -36,7 +39,7 @@ public abstract class Enemy extends Unit{
         visitor.visit(this);
     }
 
-    public abstract void onTick();
+    public abstract void onTick(Player player);
 
     public void reduceHealth(double damage){
         currentHealth -= (int)Math.floor(damage);
