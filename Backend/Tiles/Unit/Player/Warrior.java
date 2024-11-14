@@ -48,10 +48,4 @@ public class Warrior extends Player{
         }
 
     }
-
-    @Override
-    public void castAbility(Player player){
-        return;
-    }
-
 }
