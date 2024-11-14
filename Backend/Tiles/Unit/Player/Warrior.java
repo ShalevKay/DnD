@@ -45,6 +45,8 @@ public class Warrior extends Player{
         if(!closeEnemies.isEmpty()){
             Enemy enemyToHit = closeEnemies.get(random.nextInt(0, closeEnemies.size()));
             enemyToHit.reduceHealth(0.1 * healthPool);
+
+            deadEnemy(enemyToHit);
         }
 
     }
