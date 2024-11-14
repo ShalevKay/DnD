@@ -54,10 +54,4 @@ public class Mage extends Player{
             closeEnemies = enemies.stream().filter(enemy -> this.range(enemy) < abilityRange).toList();
         }
     }
-
-    @Override
-    public void castAbility(Player player){
-        return;
-    }
-
 }
