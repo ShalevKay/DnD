@@ -42,5 +42,29 @@ public class Hunter extends Player {
 
     }
 
+    @Override
+    public void castAbility(List<Enemy> enemies){
+        Enemy closest = null;
+        double minRange = Double.MAX_VALUE;
+        double enemyRange;
+
+        for(Enemy e : enemies){
+            enemyRange = range(e);
+
+            if(enemyRange < range){
+                if(closest == null || enemyRange < minRange){
+                    closest = e;
+                    minRange = enemyRange;
+                }
+            }
+        }
+
+        if(closest != null){
+            currentArrows--;
+            closest.defend(attackPoints);
+
+            deadEnemy(closest);
+        }
+    }
 
 }
