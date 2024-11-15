@@ -1,5 +1,6 @@
 package Backend.Tiles.Unit.Enemy;
 
+import Backend.Board;
 import Backend.Tiles.Unit.Player.Player;
 
 public class Monster extends Enemy{
@@ -15,7 +16,7 @@ public class Monster extends Enemy{
 
 
     @Override
-    public void onTick(Player player) {
+    public void onTick(Player player, Board board) {
         double range = range(player);
         int dx, dy;
 

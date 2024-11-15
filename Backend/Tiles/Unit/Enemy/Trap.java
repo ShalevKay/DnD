@@ -1,5 +1,6 @@
 package Backend.Tiles.Unit.Enemy;
 
+import Backend.Board;
 import Backend.Tiles.Unit.Player.Player;
 
 public class Trap extends Enemy{
@@ -22,7 +23,7 @@ public class Trap extends Enemy{
     }
 
     @Override
-    public void onTick(Player player){
+    public void onTick(Player player, Board board){
         visible = ticksCount < visibilityTime;
         if(ticksCount == visibilityTime + invisibilityTime){
             ticksCount = 0;
