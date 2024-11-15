@@ -44,6 +44,10 @@ public class Hunter extends Player {
 
     @Override
     public void castAbility(List<Enemy> enemies){
+        if(currentArrows == 0){
+            return;
+        }
+
         Enemy closest = null;
         double minRange = Double.MAX_VALUE;
         double enemyRange;
