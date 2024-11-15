@@ -1,5 +1,10 @@
 package Backend.Tiles.Unit.Player;
 
+import java.util.List;
+
+import Backend.Board;
+import Backend.Tiles.Unit.Enemy.Enemy;
+
 public class Hunter extends Player {
     private final int range;
     private int currentArrows;
@@ -23,7 +28,19 @@ public class Hunter extends Player {
         defensePoints += level;
     }
 
+    @Override
+    public void onTick(char action, Board board, List<Enemy> enemies) throws Exception {
+        super.onTick(action, board, enemies);
 
+        if(ticksCount == 10){
+            currentArrows += level;
+            ticksCount = 0;
+        }
+        else{
+            ticksCount++;
+        }
+
+    }
 
 
 }
