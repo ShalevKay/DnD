@@ -1,5 +1,6 @@
 package Backend.Tiles.Unit.Enemy;
 
+import Backend.Board;
 import Backend.Tiles.Unit.HeroicUnit;
 import Backend.Tiles.Unit.Player.Player;
 
@@ -19,10 +20,37 @@ public class Boss extends Monster implements HeroicUnit {
     }
 
     @Override
-    public void castAbility(Player player){
-        
+    public void castAbility(Player player) {
+        double range = range(player);
+
+        if(range < visionRange){
+            player.defend(attackPoints);
+
+            deadPlayer(player);
+        }
     }
 
+    @Override
+    public void onTick(Player player, Board board) {
+        double range = range(player);
+
+        if(range < visionRange){
+            if(combatTicks == abilityFrequency){
+                castAbility(player);
+                combatTicks = 0;
+            }
+            else{
+                combatTicks++;
+
+                super.onTick(player, board);
+            }
+        }
+        else{
+            combatTicks = 0;
+            
+            super.onTick(player, board);
+        }
+    }
 
     
 }
