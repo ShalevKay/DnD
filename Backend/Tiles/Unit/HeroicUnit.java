@@ -7,9 +7,13 @@ import Backend.Tiles.Unit.Player.Player;
 
 public interface HeroicUnit {
 
-    void castAbility(List<Enemy> enemies);
+    default void castAbility(List<Enemy> enemies){
+        return;
+    }
 
-    void castAbility(Player player);
+    default void castAbility(Player player){
+        return;
+    }
 
 
 }

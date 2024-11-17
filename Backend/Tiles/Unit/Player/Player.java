@@ -53,6 +53,10 @@ public abstract class Player extends Unit implements HeroicUnit{
     public void visit(Enemy enemy){
         attack(enemy);
 
+        deadEnemy(enemy);
+    }
+
+    protected void deadEnemy(Enemy enemy){
         if(enemy.isDead()){
             experience += enemy.getExperienceValue();
             enemy.setTile('1');
