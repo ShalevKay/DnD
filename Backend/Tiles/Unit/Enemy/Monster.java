@@ -1,6 +1,9 @@
 package Backend.Tiles.Unit.Enemy;
 
+import java.util.Random;
+
 import Backend.Board;
+import Backend.Tiles.Tile;
 import Backend.Tiles.Unit.Player.Player;
 
 public class Monster extends Enemy{
@@ -19,6 +22,8 @@ public class Monster extends Enemy{
     public void onTick(Player player, Board board) {
         double range = range(player);
         int dx, dy;
+        Tile tile;
+        int x = position.getX(), y = position.getY();
 
         if(range < visionRange){
             dx = position.getX() - player.getPosition().getX();
@@ -26,24 +31,38 @@ public class Monster extends Enemy{
 
             if(Math.abs(dx) > Math.abs(dy)){
                 if(dx > 0){
-                    // move left
+                    x -= 1;
                 }
                 else{
-                    // move right
+                    x += 1;
                 }
             }
             else{
                 if(dy > 0){
-                    // move up
+                    y -= 1;
                 }
                 else{
-                    // move down
+                    y += 1;
                 }
             }
         }
         else{
-            // random movement
+            Random random = new Random();
+
+            int movement = random.nextInt(1, 6);
+
+            switch(movement){
+                case 1 -> {x -= 1;} // left
+                case 2 -> {x += 1;} // right
+                case 3 -> {y -= 1;} // up
+                case 4 -> {y += 1;} // down
+                case 5 -> {return;} // nothing
+            }
         }
+
+        tile = board.getTile(x, y);
+
+        interact(tile);
     }
 
     
