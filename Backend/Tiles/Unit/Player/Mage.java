@@ -52,12 +52,8 @@ public class Mage extends Player{
             enemyToHit.defend(spellPower);
             hits++;
             closeEnemies = enemies.stream().filter(enemy -> this.range(enemy) < abilityRange).toList();
+
+            deadEnemy(enemyToHit);
         }
     }
-
-    @Override
-    public void castAbility(Player player){
-        return;
-    }
-
 }

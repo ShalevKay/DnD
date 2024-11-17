@@ -8,6 +8,7 @@ public class Trap extends Enemy{
     private int invisibilityTime;
     private int ticksCount;
     private boolean visible;
+    private char originalTile;
 
     public Trap(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints,
                 int visibilityTime, int invisibilityTime, int experienceValue){
@@ -17,6 +18,7 @@ public class Trap extends Enemy{
         this.invisibilityTime = invisibilityTime;
         this.ticksCount = 0;
         this.visible = true;
+        this.originalTile = tile;
     }
 
     @Override
@@ -30,6 +32,13 @@ public class Trap extends Enemy{
         }
         if(range(player) < 2){
             attack(player);
+        }
+
+        if(visible){
+            tile = originalTile;
+        }
+        else{
+            tile = '.';
         }
     }
 
