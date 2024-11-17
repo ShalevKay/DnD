@@ -7,7 +7,7 @@ import Backend.Tiles.Tile;
 import Backend.Tiles.Unit.Player.Player;
 
 public class Monster extends Enemy{
-    private final int visionRange;
+    protected final int visionRange;
 
 
     public Monster(char tile, int x, int y, String name, int healthPool,
