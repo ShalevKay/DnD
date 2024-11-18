@@ -67,6 +67,7 @@ public class Board {
 
         // a dead enemy
         if(tile.getTile() == '1'){
+            // TODO: use factory
             tile = new EmptyTile('.', tile.getPosition().getX(), tile.getPosition().getY());
         }
 
