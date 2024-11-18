@@ -1,5 +1,6 @@
 package Backend.Tiles.Unit.Enemy;
 
+import Backend.Board;
 import Backend.Tiles.Unit.Unit;
 import Backend.Tiles.Unit.Player.Player;
 import Backend.VisitorInterfaces.Visitor;
@@ -39,7 +40,7 @@ public abstract class Enemy extends Unit{
         visitor.visit(this);
     }
 
-    public abstract void onTick(Player player);
+    public abstract void onTick(Player player, Board board);
 
     public void reduceHealth(double damage){
         currentHealth -= (int)Math.floor(damage);
