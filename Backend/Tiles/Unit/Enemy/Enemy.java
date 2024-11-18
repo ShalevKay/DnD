@@ -26,8 +26,9 @@ public abstract class Enemy extends Unit{
 
     @Override
     public void visit(Player player) {
-        //TODO check if need anything else
         attack(player);
+
+        deadPlayer(player);
     }
 
     @Override
@@ -44,6 +45,10 @@ public abstract class Enemy extends Unit{
 
     public void reduceHealth(double damage){
         currentHealth -= (int)Math.floor(damage);
+    }
+
+    protected void deadPlayer(Player player){
+        player.setTile('X');
     }
 
 }
