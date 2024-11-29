@@ -13,13 +13,16 @@ import Backend.Tiles.Unit.Unit;
 public class Board {
     private Tile[][] board;
     private Factory factory;
+    private Factory.Heroes playerChoise;
 
 
-    public Board(){
+    public Board(Factory.Heroes playerChoise){
         board = null;
+        factory = new Factory();
+        this.playerChoise = playerChoise;
     }
 
-    public void loadLevel(int level) throws FileNotFoundException{
+    public void loadLevel(int level) throws Exception{
         List<String> list = file2List("levels/level" + level + ".txt");
         String line;
 
@@ -29,7 +32,7 @@ public class Board {
             line = list.get(i);
 
             for(int j=0; j<line.length(); j++){
-                board[i][j] = charToTile(line.charAt(j));
+                board[i][j] = charToTile(line.charAt(j), j, i);
             }
         }
     }
@@ -50,9 +53,64 @@ public class Board {
         return list;
     }
 
-    private Tile charToTile(char c){
-        // TODO: use factory
-        return null;
+    private Tile charToTile(char c, int x, int y) throws Exception{
+        Tile t;
+
+        switch(c){
+            case '.' -> {
+                t = factory.makeEmptyTile(x, y);
+            }
+            case '#' -> {
+                t = factory.makeWall(x, y);
+            }
+            case '@' -> {
+                t = factory.makePlayer(playerChoise, x, y);
+            }
+            case 's' -> {
+                t = factory.makeMonster(Factory.Monsters.NIMBLE_PARSHENDI, x, y);
+            }
+            case 'k' -> {
+                t = factory.makeMonster(Factory.Monsters.WORK_PARSHENDI, x, y);
+            }
+            case 'q' -> {
+                t = factory.makeMonster(Factory.Monsters.SADEAS_SOLDIER, x, y);
+            }
+            case 'z' -> {
+                t = factory.makeMonster(Factory.Monsters.WAR_PARSHENDI, x, y);
+            }
+            case 'b' -> {
+                t = factory.makeMonster(Factory.Monsters.WHITESPINE, x, y);
+            }
+            case 'g' -> {
+                t = factory.makeMonster(Factory.Monsters.STORM_PARSHENDI, x, y);
+            }
+            case 'w' -> {
+                t = factory.makeMonster(Factory.Monsters.SHARD_PARSHENDI, x, y);
+            }
+            case 'M' -> {
+                t = factory.makeMonster(Factory.Monsters.ESHONAI, x, y);
+            }
+            case 'C' -> {
+                t = factory.makeMonster(Factory.Monsters.TYN, x, y);
+            }
+            case 'K' -> {
+                t = factory.makeMonster(Factory.Monsters.CHASMFIEND, x, y);
+            }
+            case 'B' -> {
+                t = factory.makeTrap(Factory.Traps.BONUS, x, y);
+            }
+            case 'Q' -> {
+                t = factory.makeTrap(Factory.Traps.ILLUSION, x, y);
+            }
+            case 'D' -> {
+                t = factory.makeTrap(Factory.Traps.UNMADE, x, y);
+            }
+            default -> {
+                throw new Exception("bad character at: <" + x + ", " + y + ">");
+            }
+        }
+
+        return t;
     }
     
     public Tile getTile(int x, int y){
