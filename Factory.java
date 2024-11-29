@@ -45,12 +45,19 @@ public class Factory {
         return new Wall('#', x, y);
     }
 
-
+    public Player makePlayer(Heroes hero){
+        return heroes.get(hero).get();
+    }
 
 
 
     public enum Heroes {
         DALINAR, ADOLIN, JASNAH, SHALLAN, KALADIN, SZETH, LIFT
+    }
+
+    public enum Monsters {
+        NIMBLE_PARSHENDI, WORK_PARSHENDI, SADEAS_SOLDIER, WAR_PARSHENDI, WHITESPINE,
+        STORM_PARSHENDI, SHARD_PARSHENDI, ESHONAI, TYN, CHASMFIEND
     }
 
 
