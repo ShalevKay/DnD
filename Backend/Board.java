@@ -16,13 +16,21 @@ public class Board {
     private Factory.Heroes playerChoise;
 
 
-    public Board(Factory.Heroes playerChoise){
+    public Board(){
         board = null;
         factory = new Factory();
-        this.playerChoise = playerChoise;
+        playerChoise = null;
+    }
+
+    public void setPlayerChoise(Factory.Heroes hero){
+        playerChoise = hero;
     }
 
     public void loadLevel(int level) throws Exception{
+        if(playerChoise == null){
+            throw new Exception("the player's choise of hero is not set!");
+        }
+
         List<String> list = file2List("levels/level" + level + ".txt");
         String line;
 
