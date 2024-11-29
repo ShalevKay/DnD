@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import Backend.Tiles.EmptyTile;
 import Backend.Tiles.Wall;
+import Backend.Tiles.Unit.Enemy.Boss;
 import Backend.Tiles.Unit.Enemy.Monster;
 import Backend.Tiles.Unit.Enemy.Trap;
 import Backend.Tiles.Unit.Player.Hunter;
@@ -62,11 +63,11 @@ public class Factory {
         monsters.put(Monsters.SHARD_PARSHENDI,
                         () -> new Monster('w', -1, -1, "Shard Parshendi", 1000, 60, 25, 500, 6));
         monsters.put(Monsters.ESHONAI,
-                        () -> new Monster('M', -1, -1, "Eshonai", 2000, 15, 50, 1000, 6));
+                        () -> new Boss('M', -1, -1, "Eshonai", 2000, 15, 50, 1000, 6, 5));
         monsters.put(Monsters.TYN,
-                        () -> new Monster('C', -1, -1, "Tyn", 100, 10, 10, 1000, 1));
+                        () -> new Boss('C', -1, -1, "Tyn", 100, 10, 10, 1000, 1, 8));
         monsters.put(Monsters.CHASMFIEND,
-                        () -> new Monster('K', -1, -1, "Chasmfiend", 5000, 300, 150, 5000, 8));
+                        () -> new Boss('K', -1, -1, "Chasmfiend", 5000, 300, 150, 5000, 8, 3));
     }
     
     private void trapMap(){
