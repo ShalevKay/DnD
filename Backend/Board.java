@@ -12,6 +12,7 @@ import Backend.Tiles.Unit.Unit;
 
 public class Board {
     private Tile[][] board;
+    private Factory factory;
 
 
     public Board(){
