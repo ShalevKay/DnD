@@ -11,8 +11,9 @@ public class Warrior extends Player{
     private int cooldown;
     private int remainingCooldown;
 
-    public Warrior(char tile, int x, int y, String name, int healthPool, int attackPoints, int defensePoints,
-                   int experience, int level, int cooldown){
+    public Warrior(char tile, int x, int y, String name, int healthPool,
+                    int attackPoints, int defensePoints, int cooldown){
+                        
         super(tile, x, y, name, healthPool, attackPoints, defensePoints);
 
         this.cooldown = cooldown;
